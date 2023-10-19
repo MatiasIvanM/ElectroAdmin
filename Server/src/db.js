@@ -30,11 +30,22 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Client, WorkingOrder, Repair, RepairCat} = sequelize.models;
+const { Client, WorkingOrder, Repair, RepairCat, SpareParts, SpareCat} = sequelize.models;
 
-Client.belongsToMany(WorkingOrder, {through: "Client-WorkingOrder"});
-WorkingOrder.belongsTo(Client, {through: "Client-WorkingOrder"});
+Client.hasMany(WorkingOrder, { foreignKey: 'clientId' }); 
+WorkingOrder.belongsTo(Client, { foreignKey: 'clientId' });
 
+WorkingOrder.hasOne(Repair, { foreignKey: 'workingOrderId' }); 
+Repair.belongsTo(WorkingOrder, { foreignKey: 'workingOrderId' }); 
+
+Repair.belongsTo(RepairCat, { foreignKey: 'repairCatId' }); 
+RepairCat.hasMany(Repair, { foreignKey: 'repairCatId' });
+
+SpareParts.belongsToMany(Repair, { through: 'RepairSpareParts' });
+Repair.belongsToMany(SpareParts, { through: 'RepairSpareParts' });
+
+SpareParts.belongsTo(SpareCat, { foreignKey: 'sparePartCatId' }); 
+SpareCat.hasMany(SpareParts, { foreignKey: 'sparePartCatId' });
 
 // Aca vendrian las relaciones
 
