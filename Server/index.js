@@ -3,7 +3,7 @@ const PORT = process.env.PORT || 3001;
 const { conn } = require('./src/db');
 
 
-conn.sync({ force : true }).then(() => {
+conn.sync({ alter : true }).then(() => {
   server.listen(PORT, () => {
     console.log(`%s ElectroAdmin running in port ${PORT}`); 
   });

@@ -15,10 +15,10 @@ const basename = path.basename(__filename);
 const modelDefiners = [];
 
 // Leemos todos los archivos de la carpeta Models, los requerimos y agregamos al arreglo modelDefiners
-fs.readdirSync(path.join(__dirname, '/models'))
+fs.readdirSync(path.join(__dirname, '/Models'))
   .filter((file) => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
   .forEach((file) => {
-    modelDefiners.push(require(path.join(__dirname, '/models', file)));
+    modelDefiners.push(require(path.join(__dirname, '/Models', file)));
   });
 
 // Injectamos la conexion (sequelize) a todos los modelos
@@ -30,7 +30,11 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { } = sequelize.models;
+const { Client, WorkingOrder, Repair, RepairCat} = sequelize.models;
+
+Client.belongsToMany(WorkingOrder, {through: "Client-WorkingOrder"});
+WorkingOrder.belongsTo(Client, {through: "Client-WorkingOrder"});
+
 
 // Aca vendrian las relaciones
 
