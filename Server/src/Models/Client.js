@@ -72,6 +72,11 @@ module.exports = (sequelize) => {
             },
         },
 
+        contact: {
+          type: DataTypes.STRING,
+          
+        },
+
         // socialMedia:{
         //     type: DataTypes.STRING,
         //     allowNull: true,

@@ -39,16 +39,23 @@ module.exports = (sequelize) => {
 
     garanty: {
         type: DataTypes.ENUM('sin garantía', 'garantía de stock', 'garantía de cliente'),
-        allowNull: false,
-        defaultValue: 'sin garantía', // Valor predeterminado
+        defaultValue: 'sin garantía', 
     },
 
     priority:{
         type: DataTypes.ENUM('NORMAL', 'EMPRESAS', 'TEMPORADA'),
-        defaultValue: 'NORMAL', //setea todo a prioridad normal
+        defaultValue: 'NORMAL', 
     },
 
     budget:{ //presupuesto
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+      validate: {
+        min: 0,
+      }
+    },
+
+    busPack:{
       type: DataTypes.DECIMAL,
       allowNull: false,
       validate: {
@@ -80,6 +87,22 @@ module.exports = (sequelize) => {
       }
     },
 
+    payment:{
+      type:DataTypes.BOOLEAN,
+       allowNull: false,
+       defaultValue: true,
+    },
+
+    paymentMethod: {
+      type:DataTypes.STRING,
+      allowNull:false,
+    },
+
+    entregadoA:{
+      type: DataTypes.STRING,
+      allowNull: false,
+      },
+    
     status:{
       type: DataTypes.ENUM(
         'revision',
@@ -87,8 +110,10 @@ module.exports = (sequelize) => {
         'presupuestado',
         'aceptado',
         'rechazado',
+        'en_reparecion',
         'espera_repuesto',
         'terminado',
+        'pagado',
         'entregado'
       ),
       defaultValue: 'revision',
