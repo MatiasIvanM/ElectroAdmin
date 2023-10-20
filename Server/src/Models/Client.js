@@ -72,10 +72,10 @@ module.exports = (sequelize) => {
             },
         },
 
-        socialMedia:{
-            type: DataTypes.STRING,
-            allowNull: true,
-        },
+        // socialMedia:{
+        //     type: DataTypes.STRING,
+        //     allowNull: true,
+        // },
 
       }, { timestamps: false });
 
