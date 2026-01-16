@@ -1,51 +1,73 @@
-# Electrocentro Landing Page
+# Electrocentro
 
-Landing page comercial para **Electrocentro**, taller de reparaciones electrónicas con foco en soluciones para hogares, agro e industria.
+Landing page comercial para Electrocentro, taller de reparaciones electronicas con foco en hogares, agro e industria.
+Incluye un panel /admin con inventario y metricas (mock) y un backend con autenticacion y roles.
 
-## Características principales
+## Caracteristicas
 
-- ⚡️ Secciones diferenciadas para verticales de Hogar, Agro e Industria.
-- 🛠️ Presentación de servicios clave con métricas y beneficios.
-- 🛍️ Vitrina comercial con productos destacados listos para cotizar.
-- 💡 Espacio de tips enlazado a contenidos de Instagram (stories, reels y posts).
-- 🤝 Sección de service oficial con alianzas estratégicas.
-- 📨 Formulario de newsletter con feedback inmediato.
-- 📞 Formulario de contacto y datos de atención extendida.
-- 🌌 Hero con efecto *parallax* y fondos estáticos para dar sensación premium.
-- 🎨 Estilos con Tailwind CSS y componentes en TypeScript.
+- Secciones para servicios, industrias, tienda, tips, service oficial y contacto.
+- Tienda conectada a inventario con fichas tecnicas (sin precios).
+- Panel /admin con login, roles, inventario y metricas mockeadas.
+- Modo claro/oscuro automatico con toggle.
 
-## Tecnologías
+## Tecnologias
 
-- [React 18](https://react.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- Create React App
+- React 18 + TypeScript
+- Vite
+- Tailwind CSS
+- Node.js + Express
+
+## Requisitos
+
+- Node 18+
 
 ## Desarrollo
+
+Frontend:
 
 ```bash
 cd client
 npm install
+npm run dev
+```
+
+Backend:
+
+```bash
+cd Server
+npm install
 npm start
 ```
 
-La aplicación estará disponible en `http://localhost:3000`.
+## Variables de entorno
 
-### Tests
+Backend (Server):
 
-```bash
-cd client
-npm test
-```
+- `ADMIN_EMAIL`: email del admin inicial
+- `ADMIN_PASSWORD`: password del admin inicial
+
+Frontend (client):
+
+- `VITE_API_URL`: URL del backend (ej: http://localhost:3001)
+- `VITE_ADMIN_MOCK`: `true` para forzar datos mock en /admin
+
+## Rutas importantes
+
+- `http://localhost:5173/` landing
+- `http://localhost:5173/admin` panel admin
+- `http://localhost:3001/api/products` productos (mock)
+- `http://localhost:3001/api/metrics` metricas (mock)
 
 ## Estructura relevante
 
-- `client/src/components` — componentes reutilizables (branding, encabezados, navegación).
-- `client/src/data` — fuentes de datos tipadas para servicios, industrias, productos y tips.
-- `client/src/sections` — secciones principales de la landing page.
+- `client/src/components` componentes reutilizables
+- `client/src/sections` secciones de la landing
+- `client/src/admin` panel admin
+- `client/src/data` data mock para inventario y metricas
+- `Server/src/Routes` endpoints del backend
+- `Server/src/data` data mock persistida
 
-## Personalización
+## Deploy a GitHub Pages
 
-- Ajustá colores y fuentes en `client/tailwind.config.js`.
-- Modificá imágenes de fondo y gradientes desde la misma configuración.
-- Actualizá enlaces sociales y de contacto directamente en cada sección correspondiente.
+El workflow `/.github/workflows/deploy.yml` publica el frontend en GitHub Pages.
+Asegurate de tener GitHub Actions habilitado en Settings > Pages.
