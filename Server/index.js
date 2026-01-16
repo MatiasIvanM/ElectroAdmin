@@ -9,3 +9,4 @@ conn.sync({ alter : true }).then(() => {
   });
 })
 // Syncing all the models at once.
+// 
