@@ -10,7 +10,7 @@ export const industries: Industry[] = [
     name: 'Hogar Inteligente',
     description: 'Mantenimiento y reparación de electrodomésticos, climatización y soluciones IoT para hogares conectados.',
     icon: '🏠',
-    focus: 'Electrodomésticos, climatización, domótica'
+    focus: 'Electrodomésticos, domótica'
   },
   {
     name: 'Agro y Campo',

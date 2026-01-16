@@ -13,14 +13,13 @@ const alignment: Record<'left' | 'center', string> = {
 };
 
 const SectionHeading: FC<SectionHeadingProps> = ({ eyebrow, title, description, align = 'left' }) => (
-  <header className={`flex flex-col gap-4 ${alignment[align]} max-w-3xl`}
-  >
-    <span className="text-sm uppercase tracking-[0.3em] text-secondary font-semibold">{eyebrow}</span>
-    <h2 className="text-3xl md:text-4xl font-headline font-semibold text-soft-white">
+  <header className={`flex flex-col gap-4 ${alignment[align]} max-w-3xl`}>
+    <span className="text-xs uppercase tracking-[0.25em] text-secondary font-semibold">{eyebrow}</span>
+    <h2 className="text-3xl md:text-4xl font-headline font-semibold text-ink">
       {title}
     </h2>
     {description ? (
-      <p className="text-base text-soft-white/80 leading-relaxed">
+      <p className="text-base text-ink/70 leading-relaxed">
         {description}
       </p>
     ) : null}

@@ -8,20 +8,20 @@ const Newsletter: FC = () => {
     const formData = new FormData(form);
     const email = formData.get('email');
     if (typeof email === 'string' && email.trim()) {
-      window.alert(`¡Gracias por suscribirte, ${email}! Pronto recibirás nuestras novedades.`);
+      window.alert(`Gracias por suscribirte, ${email}! Pronto recibiras nuestras novedades.`);
       form.reset();
     }
   };
 
   return (
-    <section id="newsletter" className="section-wrapper bg-midnight">
-      <div className="mx-auto max-w-4xl rounded-[3rem] border border-secondary/30 bg-newsletter-pattern p-10 text-midnight shadow-2xl">
+    <section id="newsletter" className="section-wrapper bg-sand">
+      <div className="mx-auto max-w-4xl rounded-[3rem] border border-clay/70 bg-newsletter-pattern p-10 text-ink shadow-warm">
         <SectionHeading
           eyebrow="Newsletter"
-          title="Recibí alertas técnicas y promociones exclusivas"
+          title="Recibi tips y avisos utiles"
           description={
             <span>
-              Contenido mensual con tendencias del sector, mantenimientos preventivos y lanzamientos especiales de Electrocentro.
+              Contenido mensual con mantenimientos preventivos, novedades y promos honestas de Electrocentro.
             </span>
           }
           align="center"
@@ -34,12 +34,12 @@ const Newsletter: FC = () => {
             type="email"
             name="email"
             required
-            className="w-full flex-1 rounded-full border border-midnight/10 bg-soft-white px-6 py-4 text-base text-midnight focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40"
-            placeholder="Tu correo empresarial"
+            className="w-full flex-1 rounded-full border border-clay/70 bg-cream px-6 py-4 text-base text-ink focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/30"
+            placeholder="Tu correo"
           />
           <button
             type="submit"
-            className="w-full rounded-full bg-primary px-6 py-4 font-semibold uppercase tracking-wide text-soft-white shadow-lg transition hover:bg-secondary hover:text-midnight sm:w-auto"
+            className="w-full rounded-full bg-primary px-6 py-4 font-semibold uppercase tracking-wide text-cream shadow-warm transition hover:bg-secondary sm:w-auto"
           >
             Suscribirme
           </button>

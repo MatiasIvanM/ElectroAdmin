@@ -3,35 +3,36 @@ import SectionHeading from '../components/SectionHeading';
 import { brands } from '../data/brands';
 
 const OfficialService: FC = () => (
-  <section id="service-oficial" className="section-wrapper bg-midnight">
+  <section id="service-oficial" className="section-wrapper bg-cream">
     <div className="mx-auto flex max-w-6xl flex-col gap-12 px-6">
       <SectionHeading
         eyebrow="Service oficial"
-        title="Aliados estratégicos de marcas líderes"
+        title="Respaldo real de marcas lideres"
         description={
           <span>
-            Procesos auditados, capacitación continua y stock de repuestos originales para garantizar la continuidad operativa de tus equipos.
+            Somos service oficial y trabajamos con repuestos originales y protocolos de cada marca.
           </span>
         }
       />
-      <div className="grid gap-6 sm:grid-cols-2">
-        {brands.map((brand) => (
-          <article
-            key={brand.name}
-            className="flex flex-col gap-4 rounded-3xl border border-soft-white/10 bg-graphite/80 p-6 backdrop-blur"
-          >
-            <div>
-              <h3 className="text-2xl font-semibold text-soft-white">{brand.name}</h3>
-              <p className="text-soft-white/70">{brand.description}</p>
-            </div>
-            <a
-              href={brand.url}
-              className="text-sm font-semibold text-accent transition hover:text-secondary"
+      <div className="logo-marquee">
+        <div className="logo-track">
+          {[...brands, ...brands].map((brand, index) => (
+            <article
+              key={`${brand.name}-${index}`}
+              className="logo-item"
+              data-tone={brand.logoTone}
+              data-halo={brand.logoHaloMode ?? 'on'}
+              aria-label={brand.name}
             >
-              Ver certificaciones
-            </a>
-          </article>
-        ))}
+              <img
+                src={brand.logoUrl}
+                alt={brand.name}
+                className={`logo-image ${brand.logoTone === 'light' ? 'logo-image--light' : ''}`}
+                loading="lazy"
+              />
+            </article>
+          ))}
+        </div>
       </div>
     </div>
   </section>

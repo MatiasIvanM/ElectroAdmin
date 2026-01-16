@@ -7,23 +7,24 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#2d3a9b",
-        secondary: "#ff6b35",
-        accent: "#00bcd4",
-        midnight: "#0d1b2a",
-        graphite: "#1b263b",
-        "soft-white": "#f6f9fc"
+        primary: "rgb(var(--color-primary) / <alpha-value>)",
+        secondary: "rgb(var(--color-secondary) / <alpha-value>)",
+        accent: "rgb(var(--color-accent) / <alpha-value>)",
+        ink: "rgb(var(--color-ink) / <alpha-value>)",
+        cream: "rgb(var(--color-cream) / <alpha-value>)",
+        sand: "rgb(var(--color-sand) / <alpha-value>)",
+        clay: "rgb(var(--color-clay) / <alpha-value>)"
       },
       fontFamily: {
-        headline: ['\"Poppins\"', 'ui-sans-serif', 'system-ui'],
-        body: ['\"Inter\"', 'ui-sans-serif', 'system-ui']
+        headline: ['"Fraunces"', "ui-serif", "Georgia", "serif"],
+        body: ['"Work Sans"', "ui-sans-serif", "system-ui"]
       },
       boxShadow: {
-        glow: "0 0 25px rgba(45, 58, 155, 0.25)"
+        warm: "0 20px 45px rgb(var(--color-ink) / 0.14)"
       },
       backgroundImage: {
-        'hero-pattern': "linear-gradient(135deg, rgba(45,58,155,0.92), rgba(13,27,42,0.92)), url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1600&q=80')",
-        'newsletter-pattern': "linear-gradient(135deg, rgba(0,188,212,0.15), rgba(255,107,53,0.15))"
+        'hero-pattern': "linear-gradient(120deg, rgb(var(--color-cream) / 0.92), rgb(var(--color-sand) / 0.9)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80')",
+        'newsletter-pattern': "linear-gradient(135deg, rgb(var(--color-secondary) / 0.18), rgb(var(--color-primary) / 0.1))"
       }
     }
   },
